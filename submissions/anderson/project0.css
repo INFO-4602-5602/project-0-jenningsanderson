@@ -11,8 +11,8 @@ body {
 }
 
 .point {
-    fill: #f00; 
-    stroke: #000;
+  fill: #f00;
+  stroke: #000;
 }
 
 .label {
@@ -20,4 +20,8 @@ body {
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
+}
+
+#scatterplotSet{
+  max-width:601;
 }
