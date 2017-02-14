@@ -11,7 +11,7 @@ function partThree(d_idx){
     var height  = 300,
         width   = 400,
         padding = {top: 10, right: 10, bottom: 30, left: 30},
-        margin  = 10,
+        margin  = 5,
         svg = d3.select("#scatterplot").append("svg:svg")
           .attr("width", width)
           .attr("height",height)
@@ -62,7 +62,7 @@ function partThree(d_idx){
       .attr('r', 8);
 
     point.append('svg:title')									// tooltip
-      .text(function(d) { return d.x; });
+      .text(function(d) { return `(${d.x},${d.y})` });
 
 
     //Part 4: Interaction

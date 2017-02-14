@@ -6,7 +6,7 @@ function partTwo(d_idx){
     var height  = 300,
         width   = 400,
         padding = {top: 10, right: 10, bottom: 30, left: 30},
-        margin  = 10,
+        margin  = 5,
         svgX = d3.select("#barchart").append("svg:svg")
           .attr("id", "svgX")
           .attr("width", width)
