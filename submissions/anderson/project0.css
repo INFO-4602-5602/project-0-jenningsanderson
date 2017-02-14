@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
   font-size: 11px;
   text-align:center;
-  background-color: salmon;
+  background-color: steelblue;
 }
 
 section{
@@ -13,7 +13,7 @@ section{
 }
 
 section h1{
-  text-align:left;
+  text-align:center;
   line-height: 1.5em;
   font-size: 2em;
   margin: 0.1em;
@@ -24,7 +24,6 @@ section div{
 }
 
 #partOne{
-  text-align:left;
   border-bottom: 2px solid lightgrey;
 }
 
@@ -39,12 +38,21 @@ section div{
 
 #scatterplotSet{
   text-align:center;
-  min-height:300px;
+  min-height:250px;
+}
+
+svg.sm{
+  margin: 0 auto;
+  display: inline-block;
+}
+
+svg.white{
+  background-color:white;
 }
 
 .inline{
   display: inline-block;
-  margin: 0px 2%;
+  margin: 0px;
 }
 
 .axis path,

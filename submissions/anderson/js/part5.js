@@ -4,26 +4,28 @@ function partFive(){
 
   var sm = {height: 250, width: 300}
 
+  //Hardcoding the scales so that the axis are all the same.
+  var xScale = d3.scale.linear()
+      .domain([0,20])
+      .range([padding.left+margin, sm.width-padding.right-margin])
+
+  var yScale = d3.scale.linear()
+      .domain([0, 15])
+      .range([sm.height - padding.bottom-margin, padding.top+margin])
+
   datasets.forEach(function(item, idx){
     d3.csv(item.path, function(data){
 
       data.forEach(function(d,idx){
         d.x = +d.x;
         d.y = +d.y;
+        d.idx = idx*1.6+3; //Artificially
       })
 
       var svg = d3.select("#sm_"+(idx+1))
           svg.attr("width",  sm.width)
           svg.attr("height", sm.height)
-          svg.style("float","left");
-
-      var xScale = d3.scale.linear()
-          .domain([0,d3.max(data, function(d){return d.x})])
-          .range([padding.left+margin, sm.width-padding.right-margin])
-
-      var yScale = d3.scale.linear()
-          .domain([0, d3.max(data, function(d){return d.y})])
-          .range([sm.height - padding.bottom-margin, padding.top+margin])
+          svg.attr("class","white")
 
       var xAxis = d3.svg.axis()
           .scale(xScale)
@@ -60,29 +62,24 @@ function partFive(){
         .attr('r', 5);
 
       var xLabel = svg.append("text")
-          .attr('class','label')
-          .attr('transform','translate('+ (sm.width/2) + ', '+ (padding.top) +")")
-          .text(item.title)
+        .attr('class','label')
+        .attr('transform','translate('+ (sm.width/2) + ', '+ (padding.top+5) +")")
+        .text(item.title)
 
       var regLine = linearRegression(data)
 
       var line = d3.svg.line()
-        .x(function(d) { return xScale(d.x); })
-        .y(function(d) { return yScale(regLine(d.x)); });
+        .x(function(d) { return xScale(d.idx); })
+        .y(function(d) { return yScale(regLine(d.idx)); });
 
       svg.append("path")
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", "steelblue")
+        .attr("stroke", "salmon")
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 2)
         .attr("d", line);
-
-
-      globalData = data
-      globalReg = linearRegression(data)
-
     })
   })
 }

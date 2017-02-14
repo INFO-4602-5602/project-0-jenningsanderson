@@ -67,7 +67,7 @@
     // Leave this to test your data uploading. All data uploading should be above this line
     function checkDataset(dataset, fileName) {
       if (dataset.length == 11)
-        $("#partOne").append("<p>"+fileName+" data loaded correctly</p>");
+        $("#partOne").append("<p>"+fileName+": data loaded correctly</p>");
       else
         $("#partOne").append("<p>data loaded incorrectly. Try using the debugger to help you find the bug!</p>");
     }
@@ -94,9 +94,6 @@
 
     // Call Part V
     partFive()
-
-  var globalData;
-  var globalReg;
 
   </script>
 </body>

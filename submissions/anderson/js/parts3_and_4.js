@@ -8,13 +8,14 @@ function partThree(d_idx){
       d.y = +d.y;
     })
 
-    var height  = 400,
-        width   = 600,
+    var height  = 300,
+        width   = 400,
         padding = {top: 10, right: 10, bottom: 30, left: 30},
         margin  = 10,
         svg = d3.select("#scatterplot").append("svg:svg")
           .attr("width", width)
-          .attr("height",height);
+          .attr("height",height)
+          .attr("class",'white')
 
     var xScale = d3.scale.linear()
           .domain([0,d3.max(data, function(d){return d.x})])
@@ -70,7 +71,7 @@ function partThree(d_idx){
     });
 
     point.on("mouseover",function(d){
-      this.style = "fill: yellow;"
+      this.style = "fill: red;"
     });
 
     point.on("mouseout",function(d){
@@ -80,6 +81,7 @@ function partThree(d_idx){
     //Add the event listener here (so that it has access to all the variables...)
     // Reference to: http://bl.ocks.org/WilliamQLiu/bd12f73d0b79d70bfbae
     document.getElementById("chooser").addEventListener('change',function(e){
+      document.getElementById("scatterLabel").innerHTML = "Click on a Point"
       d3.csv(datasets[this.value].path,function(new_data){
         // Get the data into working form
         new_data.forEach(function(d,idx){
