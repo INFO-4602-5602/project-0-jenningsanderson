@@ -1,6 +1,50 @@
 body {
-    font-family: sans-serif;
-    font-size: 11px;
+  font-family: sans-serif;
+  font-size: 11px;
+  text-align:center;
+  background-color: salmon;
+}
+
+section{
+  margin: 0 auto;
+  padding: 0px 20px;
+  background-color: #EEE;
+  border: 1px solid #444;
+}
+
+section h1{
+  text-align:left;
+  line-height: 1.5em;
+  font-size: 2em;
+  margin: 0.1em;
+}
+
+section div{
+  margin-bottom: 20px;
+}
+
+#partOne{
+  text-align:left;
+  border-bottom: 2px solid lightgrey;
+}
+
+#partOne p{
+  padding: 0;
+  margin: 5px 0px;
+  text-align:left;
+  display: inline-block;
+  margin-right: 10px;
+  border-bottom: 1px dashed grey;
+}
+
+#scatterplotSet{
+  text-align:center;
+  min-height:300px;
+}
+
+.inline{
+  display: inline-block;
+  margin: 0px 2%;
 }
 
 .axis path,
@@ -20,8 +64,4 @@ body {
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
-}
-
-#scatterplotSet{
-  max-width:601;
 }
